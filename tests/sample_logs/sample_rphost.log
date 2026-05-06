@@ -1,0 +1,25 @@
+00:15.123456-0,SDBL,523,process=rphost,p:processName=rphost,t:clientID=1,Sql="SELECT _IDRRef, _Description FROM _Reference42 WHERE _Fld123 = &P1",RowsAffected=150,Rows=150
+00:16.234567-0,EXCP,0,process=rphost,p:processName=rphost,t:clientID=2,Descr="CommonModule.Интеграция : Строка 42 : Ошибка: Значение не является значением объектного типа"
+00:17.345678-0,TLOCK,1500,process=rphost,p:processName=rphost,t:clientID=3,WaitConnections="4:S,5:X",Regions="AccumulationRegister.ОстаткиТМЦ:RecordSet"
+00:18.456789-0,MEM,0,process=rphost,p:processName=rphost,Memory=1073741824,VirtualMemory=2147483648
+00:19.567890-0,CALL,15000,process=rphost,p:processName=rphost,t:clientID=5,IName="ОбщийМодуль.ТяжелаяОперация"
+00:20.678901-0,SDBL,1200,process=rphost,p:processName=rphost,t:clientID=6,Sql="SELECT _IDRRef FROM _AccumRg456 WHERE _Period >= &P1 AND _Period <= &P2",RowsAffected=5000,Rows=5000
+00:21.789012-0,TDEADLOCK,0,process=rphost,p:processName=rphost,t:clientID=7,DeadlockConnectionIntersections="7:X<->8:X"
+00:22.890123-0,SDBL,250,process=rphost,p:processName=rphost,t:clientID=8,Sql="SELECT _IDRRef FROM _InfoRg789",RowsAffected=10,Rows=10
+00:23.901234-0,EXCP,0,process=rphost,p:processName=rphost,t:clientID=9,Descr="Документ.РасходнаяНакладная.МодульОбъекта : Строка 105 : Ошибка при записи объекта"
+00:24.012345-0,MEM,0,process=rphost,p:processName=rphost,Memory=536870912,VirtualMemory=1073741824
+00:25.123456-0,CALL,200,process=rphost,p:processName=rphost,t:clientID=10,IName="ОбщийМодуль.БыстраяПроцедура"
+00:26.234567-0,SDBL,750,process=rphost,p:processName=rphost,t:clientID=11,Sql="SELECT TOP 1000 _IDRRef FROM _Document123 ORDER BY _Date_Time DESC",RowsAffected=1000,Rows=1000
+00:27.345678-0,TLOCK,3200,process=rphost,p:processName=rphost,t:clientID=12,WaitConnections="13:X",Regions="InformationRegister.НастройкиПользователей:RecordSet"
+00:28.456789-0,DBPOSTGRS,2500,process=rphost,p:processName=rphost,t:clientID=13,Trans="commit",Sql="COMMIT"
+00:29.567890-0,SDBL,600,process=rphost,p:processName=rphost,t:clientID=14,Sql="SELECT _IDRRef FROM _Reference99 WHERE _Description LIKE &P1",RowsAffected=200,Rows=200
+00:30.678901-0,MEM,0,process=rphost,p:processName=rphost,Memory=2147483648,VirtualMemory=4294967296
+00:31.789012-0,EXCP,0,process=rphost,p:processName=rphost,t:clientID=15,Descr="Ошибка формата файла данных"
+00:32.890123-0,CALL,300,process=rphost,p:processName=rphost,t:clientID=16,IName="РегистрНакопления.ОстаткиТМЦ.Остатки"
+00:33.901234-0,SDBL,100,process=rphost,p:processName=rphost,t:clientID=17,Sql="SELECT COUNT(*) FROM _Reference42",RowsAffected=1,Rows=1
+00:34.012345-0,TDEADLOCK,0,process=rphost,p:processName=rphost,t:clientID=18,DeadlockConnectionIntersections="18:X<->19:X"
+00:35.123456-0,SDBL,980,process=rphost,p:processName=rphost,t:clientID=19,Sql="SELECT _IDRRef, _Fld001, _Fld002 FROM _AccumRg100 GROUP BY _IDRRef",RowsAffected=8000,Rows=8000
+00:36.234567-0,DBMSSQL,3100,process=rphost,p:processName=rphost,t:clientID=20,Trans="commit",Sql="COMMIT TRANSACTION"
+00:37.345678-0,WARNING,0,process=rphost,p:processName=rphost,Descr="Нарушение уникальности индекса при попытке записи"
+00:38.456789-0,CALL,12000,process=rphost,p:processName=rphost,t:clientID=21,IName="ФоновоеЗадание.ЗакрытиеМесяца"
+00:39.567890-0,SDBL,450,process=rphost,p:processName=rphost,t:clientID=22,Sql="SELECT _IDRRef FROM _Reference42 INNER JOIN _Reference43 ON _Reference42._IDRRef=_Reference43._Fld456",RowsAffected=50,Rows=50
