@@ -189,4 +189,5 @@ class TestParseLogFile:
         elapsed = time.perf_counter() - t0
 
         assert len(events) == 10_000
-        assert elapsed < 3.0, f'Разбор занял {elapsed:.3f} с (лимит 3 с)'
+        limit = float(os.environ.get('ULA_PERF_LIMIT', '3.0'))
+        assert elapsed < limit, f'Разбор занял {elapsed:.3f} с (лимит {limit} с)'

@@ -4,6 +4,7 @@ import sys
 import threading
 import time
 import webbrowser
+from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 try:
@@ -256,12 +257,10 @@ class App(tk.Tk):
             self._status_var.set(f'HTML-отчёт сохранён: {path}')
 
     def _open_html(self) -> None:
-        import urllib.request
         out_dir = os.path.dirname(os.path.abspath(__file__))
         tmp_path = os.path.join(out_dir, '_report_preview.html')
         with open(tmp_path, 'w', encoding='utf-8') as fh:
             fh.write(self._html_content)
-        from pathlib import Path
         webbrowser.open(Path(tmp_path).as_uri())
 
     # ── утилиты ──────────────────────────────────────────────────────────────

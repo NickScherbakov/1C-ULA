@@ -91,7 +91,10 @@ def _parse_properties(props_str: str) -> Dict[str, Any]:
             raw = props_str[val_start:i].strip()
             try:
                 f = float(raw)
-                value = int(f) if f == int(f) and '.' not in raw and 'e' not in raw.lower() else f
+                has_decimal = '.' in raw
+                has_exp = 'e' in raw.lower()
+                is_whole = (f == int(f))
+                value = int(f) if (is_whole and not has_decimal and not has_exp) else f
             except (ValueError, TypeError):
                 value = raw
 
