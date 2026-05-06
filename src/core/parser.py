@@ -90,7 +90,8 @@ def _parse_properties(props_str: str) -> Dict[str, Any]:
                 i += 1
             raw = props_str[val_start:i].strip()
             try:
-                value = float(raw) if '.' in raw else int(raw)
+                f = float(raw)
+                value = int(f) if f == int(f) and '.' not in raw and 'e' not in raw.lower() else f
             except (ValueError, TypeError):
                 value = raw
 

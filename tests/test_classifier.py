@@ -178,7 +178,7 @@ class TestMemoryClassification:
     """Классификация проблем с памятью."""
 
     def test_mem_over_1gb_is_issue(self):
-        ev = _make_event('MEM', 0, Memory=1073741825)  # 1 ГБ + 1 байт
+        ev = _make_event('MEM', 0, Memory=1024 * 1024 * 1024 + 1)  # 1 ГБ + 1 байт
         problems = classify_event(ev)
         types = [p['type'] for p in problems]
         assert 'memory_issue' in types

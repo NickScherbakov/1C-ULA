@@ -142,6 +142,9 @@ _SEVERITY_RU = {
 }
 
 _INITIAL_ROWS = 100
+_MAX_PROPERTY_PREVIEW = 3   # число свойств в превью строки события
+_MAX_DESCR_LENGTH = 300     # максимальная длина описания в ячейке таблицы
+_MAX_CELL_WIDTH = 500       # CSS max-width колонки описания (px)
 
 
 def _esc(value: Any) -> str:
@@ -191,11 +194,11 @@ def _build_events_table(events: List[Dict[str, Any]]) -> str:
     rows_html: List[str] = []
     for idx, ev in enumerate(events):
         props = ev.get('properties') or {}
-        # Краткое описание: Descr или первые два свойства
+        # Краткое описание: Descr или первые N свойств
         descr = props.get('Descr') or props.get('descr') or ''
         if not descr:
             sample = ', '.join(
-                f'{k}={v}' for k, v in list(props.items())[:3]
+                f'{k}={v}' for k, v in list(props.items())[:_MAX_PROPERTY_PREVIEW]
             )
             descr = sample
         hidden_cls = ' class="hidden-row"' if idx >= _INITIAL_ROWS else ''
@@ -205,7 +208,8 @@ def _build_events_table(events: List[Dict[str, Any]]) -> str:
             f'<td><strong>{_esc(ev.get("event_type",""))}</strong></td>'
             f'<td>{_esc(ev.get("duration_ms", 0))}</td>'
             f'<td>{_esc(ev.get("pid", 0))}</td>'
-            f'<td style="max-width:500px">{_esc(str(descr)[:300])}</td>'
+            f'<td style="max-width:{_MAX_CELL_WIDTH}px">'
+            f'{_esc(str(descr)[:_MAX_DESCR_LENGTH])}</td>'
             f'</tr>'
         )
 
