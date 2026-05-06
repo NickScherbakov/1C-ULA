@@ -1,0 +1,25 @@
+00:01.000001-0,HASP,0,process=rmngr,p:processName=rmngr,IName="Менеджер кластера"
+00:02.000002-0,CONN,0,process=rmngr,p:processName=rmngr,IName="Подключение нового рабочего процесса"
+00:03.000003-0,EXCP,0,process=rmngr,p:processName=rmngr,Descr="Не удалось подключиться к рабочему серверу: сервер недоступен"
+00:04.000004-0,PROC,0,process=rmngr,p:processName=rmngr,IName="Запуск рабочего процесса rphost"
+00:05.000005-0,CALL,5000,process=rmngr,p:processName=rmngr,IName="ПроверкаДоступностиСерверов"
+00:06.000006-0,SDBL,600,process=rmngr,p:processName=rmngr,Sql="SELECT _IDRRef FROM _Cluster WHERE _Active = 1",RowsAffected=1,Rows=1
+00:07.000007-0,MEM,0,process=rmngr,p:processName=rmngr,Memory=524288000,VirtualMemory=1048576000
+00:08.000008-0,EXCP,0,process=rmngr,p:processName=rmngr,Descr="Ошибка загрузки конфигурации кластера 1С:Предприятия"
+00:09.000009-0,CONN,0,process=rmngr,p:processName=rmngr,IName="Отключение рабочего процесса по таймауту"
+00:10.000010-0,CALL,200,process=rmngr,p:processName=rmngr,IName="СинхронизацияИнформационныхБаз"
+00:11.000011-0,SDBL,50,process=rmngr,p:processName=rmngr,Sql="SELECT _IDRRef FROM _InfoBase WHERE _IBAliase = &P1",RowsAffected=1,Rows=1
+00:12.000012-0,MEM,0,process=rmngr,p:processName=rmngr,Memory=1610612736,VirtualMemory=3221225472
+00:13.000013-0,WARNING,0,process=rmngr,p:processName=rmngr,Descr="Рабочий процесс превышает допустимый порог памяти"
+00:14.000014-0,PROC,0,process=rmngr,p:processName=rmngr,IName="Перезапуск рабочего процесса rphost (pid=1234)"
+00:15.000015-0,SDBL,800,process=rmngr,p:processName=rmngr,Sql="UPDATE _SessionData SET _LastActivity = &P1 WHERE _SessionID = &P2",RowsAffected=1,Rows=1
+00:16.000016-0,EXCP,0,process=rmngr,p:processName=rmngr,Descr="Внутренняя ошибка менеджера кластера: неверный дескриптор объекта"
+00:17.000017-0,CONN,0,process=rmngr,p:processName=rmngr,IName="Регистрация нового сеанса пользователя"
+00:18.000018-0,CALL,150,process=rmngr,p:processName=rmngr,IName="ОбработкаРегламентногоЗадания"
+00:19.000019-0,SDBL,1100,process=rmngr,p:processName=rmngr,Sql="DELETE FROM _Sessions WHERE _LastActivity < &P1",RowsAffected=500,Rows=500
+00:20.000020-0,MEM,0,process=rmngr,p:processName=rmngr,Memory=2684354560,VirtualMemory=5368709120
+00:21.000021-0,WARNING,0,process=rmngr,p:processName=rmngr,Descr="Не удалось выполнить плановую проверку целостности данных"
+00:22.000022-0,PROC,0,process=rmngr,p:processName=rmngr,IName="Завершение регламентного обслуживания кластера"
+00:23.000023-0,SDBL,350,process=rmngr,p:processName=rmngr,Sql="SELECT COUNT(*) FROM _Sessions WHERE _Active = 1",RowsAffected=1,Rows=1
+00:24.000024-0,CALL,11000,process=rmngr,p:processName=rmngr,IName="РезервноеКопированиеКонфигурации"
+00:25.000025-0,EXCP,0,process=rmngr,p:processName=rmngr,Descr="Ошибка: недостаточно свободного дискового пространства для создания резервной копии"
